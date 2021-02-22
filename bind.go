@@ -122,7 +122,7 @@ func Bind(name string, f interface{}) error {
 		default:
 			return nil, errors.New("unexpected number of return values")
 		}
-	}, in, out, "" /*funcDescription(f)*/)
+	}, in, out, "")
 }
 
 func getName(t reflect.Type) interface{} {
@@ -305,16 +305,6 @@ func funcDescription(f interface{}) string {
 
 	return comment
 
-	/*
-		importPath, _ := filepath.Abs("/")
-		myDoc := doc.New(pkg, importPath, doc.AllDecls)
-
-		for _, theFunc := range myDoc.Funcs {
-			if theFunc.Name == funcName {
-				return theFunc.Doc
-			}
-		}
-	*/
 
 	return ""
 }
