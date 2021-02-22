@@ -127,7 +127,7 @@ func Bind(name string, f interface{}) error {
 		default:
 			return nil, errors.New("unexpected number of return values")
 		}
-	}, in, out, funcDescription(f))
+	}, in, out, "" /*funcDescription(f)*/)
 }
 
 func getName(t reflect.Type) interface{} {
