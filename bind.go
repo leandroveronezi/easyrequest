@@ -3,11 +3,6 @@ package easyRequest
 import (
 	"encoding/json"
 	"errors"
-	"fmt"
-	"go/ast"
-	"go/parser"
-	"go/token"
-	"log"
 	"reflect"
 	"runtime"
 	"strings"
@@ -231,6 +226,7 @@ func funcName(f interface{}) string {
 	return splitFuncName[len(splitFuncName)-1]
 }
 
+/*
 func funcDescription(f interface{}) string {
 
 	fileName, _ := runtime.FuncForPC(reflect.ValueOf(f).Pointer()).FileLine(0)
@@ -322,3 +318,4 @@ func funcDescription(f interface{}) string {
 
 	return ""
 }
+*/
