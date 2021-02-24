@@ -13,13 +13,11 @@ func hdoc(w http.ResponseWriter, r *http.Request) {
 	for _, f := range bindings {
 
 		aux := struct {
-			Name    string
-			Comment string
-			In      []interface{}
-			Out     interface{}
+			Name string
+			In   []interface{}
+			Out  interface{}
 		}{
 			f.name,
-			f.comment,
 			f.in,
 			f.out,
 		}

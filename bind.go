@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-func register(name string, f bindingFunc, in []interface{}, out interface{}, comment string) error {
+func register(name string, f bindingFunc, in []interface{}, out interface{}) error {
 
 	_, exists := bindings[name]
 
@@ -17,13 +17,9 @@ func register(name string, f bindingFunc, in []interface{}, out interface{}, com
 		return errors.New("")
 	}
 
-	comment = strings.Trim(comment, " ")
-	comment = strings.TrimRight(comment, "\r\n")
-
 	bindings[name] = bindingType{
 		f,
 		name,
-		comment,
 		in,
 		out,
 	}
@@ -122,7 +118,7 @@ func Bind(name string, f interface{}) error {
 		default:
 			return nil, errors.New("unexpected number of return values")
 		}
-	}, in, out, "")
+	}, in, out)
 }
 
 func getName(t reflect.Type) interface{} {
